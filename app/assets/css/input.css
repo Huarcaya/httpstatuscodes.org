@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-slate-900 text-slate-400 text-lg
+}
+
+
+a {
+    @apply text-slate-300 font-medium hover:text-sky-400
+}
+
+code {
+    @apply bg-slate-700 p-1 rounded font-mono
+}
+
+h1 {
+    @apply text-4xl font-semibold
+}
+
+hr {
+    @apply border-cyan-900
+}
+
+hr + ul {
+    @apply text-xs pt-4
+}
+
+p {
+    @apply my-4
+}
+
+.content {
+    @apply container mx-auto px-64
+}
+
+.content a {
+    @apply underline underline-offset-4 decoration-dotted decoration-sky-400 hover:no-underline
+}
+
+.number {
+    @apply font-medium text-green-400
+}
+
+.set {
+    @apply font-medium text-xl
+}
+
+.share {
+    @apply flex flex-row container mx-auto px-64 my-8 space-x-6
+}
