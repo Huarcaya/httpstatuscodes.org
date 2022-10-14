@@ -5,8 +5,9 @@ from flask import Blueprint, render_template, request, send_from_directory
 from markdown import markdown
 import yaml
 
-from app.utils.constants import APP_DIR_PATH, CODE_NOT_FOUND_MSG, CODES_DIR_PATH, CONTENTS_DIR_PATH, DIR_NOT_FOUND_MSG, FILE_ERROR_READING_MSG
+from app.utils.constants import CODE_NOT_FOUND_MSG, CODES_DIR_PATH, CONTENTS_DIR_PATH, DIR_NOT_FOUND_MSG, FILE_ERROR_READING_MSG
 from app.utils.html import strip_tags
+from app.utils.md import md_extensions, md_extension_configs
 
 home = Blueprint("home", __name__)
 
@@ -25,7 +26,8 @@ def index():
     try:
         with open(CONTENTS_DIR_PATH.joinpath("index.md"), "r", encoding="utf-8") as index_file:
             index_md_content = index_file.read()
-            headline = markdown(index_md_content.split("---")[2])
+            headline = markdown(index_md_content.split("---")[2],
+                                extension_configs=md_extension_configs)
     except IOError:
         return render_template("404.html", error_message=FILE_ERROR_READING_MSG.format("MD"))
 
@@ -101,10 +103,16 @@ def get_code(code: int):
     md_content_divided = code_md_content.split("---")
 
     content_meta = yaml.safe_load(md_content_divided[1])
-    content_body = markdown(md_content_divided[2])
-    content_footnotes = markdown(md_content_divided[3])
+    content_body = markdown(md_content_divided[2],
+                            extensions=[*md_extensions],
+                            extension_configs=md_extension_configs)
+    content_footnotes = markdown(md_content_divided[3],
+                                 extensions=[*md_extensions],
+                                 extension_configs=md_extension_configs)
 
-    content = markdown(re.sub('^-{3}(\n.*)+"\n-{3}\n', '', code_md_content))
+    content = markdown(re.sub('^-{3}(\n.*)+"\n-{3}\n', '', code_md_content),
+                       extensions=[*md_extensions],
+                       extension_configs=md_extension_configs)
 
     page_description = strip_tags(content_body.split("\n")[0])
 

@@ -1,3 +1,5 @@
+@import "./pygments.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,7 +14,7 @@ a {
 }
 
 code {
-    @apply bg-slate-700 p-1 rounded font-mono
+    @apply font-mono bg-slate-800 p-1 rounded
 }
 
 h1 {
@@ -31,12 +33,16 @@ p {
     @apply my-4
 }
 
+pre {
+    @apply font-mono text-base bg-slate-800 px-3 py-2 rounded overflow-auto
+}
+
 .codes {
-    @apply mx-auto px-8 md:px-2 lg:px-20 2xl:px-64
+    @apply mx-auto px-8 mb-10 md:px-2 lg:px-20 2xl:px-64
 }
 
 .content {
-    @apply container mx-auto px-8 md:px-2 lg:px-20 2xl:px-64
+    @apply container mx-auto px-10 mb-8 md:px-2 lg:px-20 2xl:px-64
 }
 
 .content a {
