@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<section class="content mt-32">
+<section class="content one">
 {{ headline|safe }}
 </section>
 <ul class="share">
@@ -8,7 +8,7 @@
     <li><a href="https://github.com/huarcaya/httpstatuscodes.org">&bigstar; Star on GitHub</a></li>
     <li><a href="https://gitlab.com/huarcaya/httpstatuscodes.org">&bigstar; Star on GitLab</a></li>
 </ul>
-<section class="container mx-auto px-64 my-8">
+<section class="container codes">
     <ul>
     {% for x in http_codes_collection.values() %}
         <li class="mt-4">

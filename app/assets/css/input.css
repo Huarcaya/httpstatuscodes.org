@@ -31,12 +31,20 @@ p {
     @apply my-4
 }
 
+.codes {
+    @apply mx-auto px-8 md:px-2 lg:px-20 2xl:px-64
+}
+
 .content {
-    @apply container mx-auto px-64
+    @apply container mx-auto px-8 md:px-2 lg:px-20 2xl:px-64
 }
 
 .content a {
     @apply underline underline-offset-4 decoration-dotted decoration-sky-400 hover:no-underline
+}
+
+.one {
+    @apply mt-16 md:mt-24 lg:mt-32
 }
 
 .number {
@@ -48,5 +56,9 @@ p {
 }
 
 .share {
-    @apply flex flex-row container mx-auto px-64 my-8 space-x-6
+    @apply flex flex-col md:flex-row container mx-auto px-8 my-8 md:px-2 lg:px-20 2xl:px-64 md:space-x-6
+}
+
+.subtitle {
+    @apply text-2xl font-mono text-slate-500
 }
