@@ -99,7 +99,7 @@ def get_code(code: int):
         return render_template("404.html", error_message=FILE_ERROR_READING_MSG.format("MD")), 404
 
     md_content_divided = code_md_content.split("---")
-    print(md_content_divided)
+
     content_meta = yaml.safe_load(md_content_divided[1])
     content_body = markdown(md_content_divided[2])
     content_footnotes = markdown(md_content_divided[3])

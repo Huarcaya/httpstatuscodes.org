@@ -31,8 +31,6 @@ def get_api_code(code: int):
     content_meta = yaml.safe_load(content_divided[1])
     content_body = markdown(content_divided[2])
 
-    print(content_divided[2])
-
     try:
         with CODES_DIR_PATH.joinpath("classes.json").open() as classes_from_json:
             http_codes_categories = json.load(classes_from_json)
