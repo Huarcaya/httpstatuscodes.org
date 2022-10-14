@@ -1,5 +1,5 @@
-from pygments.formatters import HtmlFormatter
 from markdown.extensions.codehilite import CodeHiliteExtension
+from pygments.formatters import HtmlFormatter
 
 
 class CustomHtmlFormatter(HtmlFormatter):
@@ -15,7 +15,7 @@ class CustomHtmlFormatter(HtmlFormatter):
         yield 0, '</code>'
 
 
-md_extension_configs = {
+MD_EXTENSION_CONFIGS = {
     'extra': {
         'footnotes': {
             'UNIQUE_IDS': True
@@ -29,5 +29,12 @@ md_extension_configs = {
     }
 }
 
-md_extensions = ['extra', 'toc',
-                 CodeHiliteExtension(pygments_formatter=CustomHtmlFormatter)]
+MD_EXTENSIONS = [
+    'extra',
+    CodeHiliteExtension(pygments_formatter=CustomHtmlFormatter)
+]
+
+MD_FULL_EXTENSIONS = [
+    'extra', 'toc',
+    CodeHiliteExtension(pygments_formatter=CustomHtmlFormatter)
+]

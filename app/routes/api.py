@@ -1,10 +1,13 @@
 from genericpath import exists
 import json
+
 from flask import Blueprint, jsonify, request, url_for
 from markdown import markdown
 import yaml
 
-from app.utils.constants import CODE_NOT_FOUND_MSG, CODES_DIR_PATH, DIR_NOT_FOUND_MSG, FILE_ERROR_READING_MSG
+from app.utils.constants import (
+    CODE_NOT_FOUND_MSG, CODES_DIR_PATH, DIR_NOT_FOUND_MSG,
+    FILE_ERROR_READING_MSG)
 from app.utils.html import strip_tags
 
 

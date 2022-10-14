@@ -1,4 +1,5 @@
 import os
+
 from flask import Flask, render_template
 
 from app.routes.home import home
@@ -30,7 +31,7 @@ def create_app(test_config=None):
     def not_found_page(error):
         return render_template('404.html', error_message=error), 404
 
-    app.register_blueprint(home)
     app.register_blueprint(api)
+    app.register_blueprint(home)
 
     return app
